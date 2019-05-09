@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+int main() 
+{
+    float image[5][5][3];
+    int x, y;    
+    
+    srand(0);// Don’t change this srand() line!
+    
+    for(y = 0; y < 5; y++) {
+        for(x = 0; x < 5; x++) {
+            image[x][y][0] = (float)rand()/(float)INT_MAX; //Red Value
+            image[x][y][1] = (float)rand()/(float)INT_MAX; //Green Value
+            image[x][y][2] = (float)rand()/(float)INT_MAX; //Blue Value
+        }
+    
+    
+    }
+    for(y = 0; y < 2; y++) {
+        for(x = 0; x < 5; x++) {
+            image[x][y][0] = (float)rand()/(float)INT_MAX; //Red Value
+            image[x][y][1] = (float)rand()/(float)INT_MAX; //Green Value
+            image[x][y][2] = (float)rand()/(float)INT_MAX; //Blue Value
+
+
+// ----------------------------------------
+// Write your code below this comment block
+// ----------------------------------------
+
+            float mean;
+            mean = (image[x][y][0]+image[x][y][1]+image[x][y][2])/3.0; //Converts image to greyscale
+            
+            image[x][y][0] = mean;
+            image[x][y][1] = mean;
+            image[x][y][2] = mean;
+           
+            printf("%d %d: %f %f %f\n", x, y, image[x][y][0], image[x][y][1], image[x][y][2]);
+            
+        }    
+    }
+
+    return 0;
+}
